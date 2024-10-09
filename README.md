@@ -27,7 +27,7 @@ you shouldn't as you know)
 
 The build result will be a Pentaho package located in ```target```.
 
-#### Deploying to pentaho-server
+#### Deploying to tahopen-server
 
 1) Delete the existing common-ui platform plugin at pentaho-server/pentaho-solutions/system/common-ui.
 2) Build common-ui.
