@@ -1,0 +1,57 @@
+/*!
+ * Copyright 2010 - 2019 Hitachi Vantara. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * The `IView` interface represents the set of options used to initialize a view instance.
+ *
+ * @name pentaho.visual.spec.IView
+ * @interface
+ *
+ * @see pentaho.visual.IView
+ */
+
+/**
+ * The HTML container element where the view is rendered.
+ *
+ * This property is required.
+ *
+ * @name domContainer
+ * @memberOf pentaho.visual.spec.IView#
+ * @type {HTMLElement}
+ */
+
+/**
+ * The visualization model.
+ *
+ * This property is required.
+ *
+ * @name model
+ * @memberOf pentaho.visual.spec.IView#
+ * @type {pentaho.visual.Model}
+ */
+
+/**
+ * The instance-level view configuration.
+ * Contrast this with the class-level view configuration, supported by some view classes, and which affects all instances of a view class.
+ * When both class and instance-level configuration are supported by a view class, the instance-level configuration takes precedence.
+ * For more information on supported configuration options, see the documentation of the specific view class.
+ *
+ * This property is optional.
+ *
+ * @name config
+ * @memberOf pentaho.visual.spec.IView#
+ * @type {object}
+ */

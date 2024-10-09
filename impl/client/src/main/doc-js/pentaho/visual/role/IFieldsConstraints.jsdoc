@@ -1,0 +1,82 @@
+/*!
+ * Copyright 2018 Hitachi Vantara. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * The `IFieldsConstraints` interface exposes metadata information about
+ * the [fields]{@link pentaho.visual.role.AbstractMapping#fields} of visual roles' mappings.
+ *
+ * This interface extends [IFieldsMetadata]{@link pentaho.visual.role.IFieldsMetadata}
+ * and adds additional properties that allow specifying field count constraints.
+ *
+ * Objects of this interface are part of visual role properties and
+ * are exposed in the [PropertyType#fields]{@link pentaho.visual.role.PropertyType#fields}
+ * property.
+ *
+ * @name IFieldsConstraints
+ * @memberOf pentaho.visual.role
+ * @interface
+ * @extends pentaho.visual.role.IFieldsMetadata
+ *
+ * @see pentaho.visual.role.AbstractMapping#fields
+ */
+
+/**
+ * Gets or sets a value that indicates if at least one [field]{@link pentaho.visual.role.AbstractMapping#fields}
+ * must be mapped for the visual role to be valid.
+ *
+ * For more information on this property see
+ * [PropertyType#isRequired]{@link pentaho.type.PropertyType#isRequired}.
+ *
+ * The function's `keyArgs` argument is given the keyword argument `ignoreCurrentMode`
+ * that, when `true`, indicates if the current [mode]{@link pentaho.visual.role.AbstractMapping#mode},
+ * if any, should be ignored when evaluating.
+ *
+ * @name isRequired
+ * @memberOf pentaho.visual.role.IFieldsConstraints#
+ * @type {undefined | boolean | pentaho.type.spec.PropertyDynamicAttribute.<boolean>}
+ */
+
+/**
+ * Gets or sets the minimum number of [fields]{@link pentaho.visual.role.AbstractMapping#fields}
+ * that must be mapped for the visual role to be valid.
+ *
+ * For more information on this property see
+ * [PropertyType#countMin]{@link pentaho.type.PropertyType#countMin}.
+ *
+ * The function's `keyArgs` argument is given the keyword argument `ignoreCurrentMode`
+ * that, when `true`, indicates if the current [mode]{@link pentaho.visual.role.AbstractMapping#mode},
+ * if any, should be ignored when evaluating.
+ *
+ * @name countMin
+ * @memberOf pentaho.visual.role.IFieldsConstraints#
+ * @type {undefined | number | pentaho.type.spec.PropertyDynamicAttribute.<number>}
+ */
+
+/**
+ * Gets or sets the maximum number of [fields]{@link pentaho.visual.role.AbstractMapping#fields}
+ * that can be mapped for the visual role to be valid.
+ *
+ * For more information on this property see
+ * [PropertyType#countMax]{@link pentaho.type.PropertyType#countMax}.
+ *
+ * The function's `keyArgs` argument is given the keyword argument `ignoreCurrentMode`
+ * that, when `true`, indicates if the current [mode]{@link pentaho.visual.role.AbstractMapping#mode},
+ * if any, should be ignored when evaluating.
+ *
+ * @name countMax
+ * @memberOf pentaho.visual.role.IFieldsConstraints#
+ * @type {undefined | number | pentaho.type.spec.PropertyDynamicAttribute.<number>}
+ */

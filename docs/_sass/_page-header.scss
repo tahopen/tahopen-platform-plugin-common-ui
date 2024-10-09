@@ -1,0 +1,43 @@
+.page-header {
+  padding: 1em 2em;
+
+  .page-header-wrapper {
+    max-width: 55rem;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: baseline;
+    align-content: flex-start;
+
+    h1 {
+      &.parent-title {
+        margin-top: 0;
+        margin-bottom: 0.1rem;
+      }
+
+      a,
+      a:link,
+      a:visited,
+      a:hover,
+      a:active {
+        font-size: 1.75rem;
+      }
+    }
+
+    span {
+      padding: 0 0.5rem;
+      font-size: 1.5em;
+    }
+
+    h2 {
+      color: #ffffff;
+
+      &.page-title {
+        margin: 0;
+      }
+    }
+  }
+}

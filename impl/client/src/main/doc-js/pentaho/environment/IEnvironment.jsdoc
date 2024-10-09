@@ -1,0 +1,119 @@
+/*!
+ * Copyright 2010 - 2018 Hitachi Vantara. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * The `IEnvironment` interface allows access to environmental information of the Pentaho Platform.
+ * For example, it allows access to
+ * [user]{@link pentaho.environment.IEnvironment#user},
+ * [theme]{@link pentaho.environment.IEnvironment#theme},
+ * [locale]{@link pentaho.environment.IEnvironment#locale},
+ * [application]{@link pentaho.environment.IEnvironment#application}
+ * and
+ * [server]{@link pentaho.environment.IEnvironment#server}.
+ *
+ * Not all information is always available, or sometimes it is not fixed,
+ * and so some of these can be `null`. Check the documentation of each property and sub-property.
+ *
+ * @name pentaho.environment.IEnvironment
+ * @interface
+ */
+
+/**
+ * Gets the identifier of the client application.
+ *
+ * @name application
+ * @memberOf pentaho.environment.IEnvironment#
+ * @type {?nonEmptyString}
+ * @readOnly
+ */
+
+/**
+ * Gets information about the user.
+ *
+ * @name user
+ * @memberOf pentaho.environment.IEnvironment#
+ * @type {pentaho.environment.IUser}
+ * @readOnly
+ */
+
+/**
+ * Gets information about the server web application.
+ *
+ * @name server
+ * @memberOf pentaho.environment.IEnvironment#
+ * @type {pentaho.environment.IServer}
+ * @readOnly
+ */
+
+/**
+ * Gets the identifier of the theme.
+ *
+ * @name theme
+ * @memberOf pentaho.environment.IEnvironment#
+ * @type {?nonEmptyString}
+ * @readOnly
+ */
+
+/**
+ * Gets the identifier of the locale.
+ *
+ * @name locale
+ * @memberOf pentaho.environment.IEnvironment#
+ * @type {?nonEmptyString}
+ * @readOnly
+ */
+
+/**
+ * Gets the reserved characters for file names, all concatenated in a single string.
+ *
+ * @name reservedChars
+ * @memberOf pentaho.environment.IEnvironment#
+ * @type {?nonEmptyString}
+ * @readOnly
+ */
+
+/**
+ * Creates a child environment of this one given its specification.
+ * Any unspecified information is inherited from this environment.
+ *
+ * @name createChild
+ * @memberOf pentaho.environment.IEnvironment#
+ * @method
+ * @param {pentaho.environment.spec.IEnvironment} [childSpec] - The child environment specification.
+ * @return {pentaho.environment.IEnvironment} The child environment.
+ */
+
+/**
+ * Creates a specification with the information of this environment.
+ *
+ * @name toSpec
+ * @memberOf pentaho.environment.IEnvironment#
+ * @method
+ * @return {pentaho.environment.spec.IEnvironment} The environment specification.
+ * @see pentaho.environment.IEnvironment#toJSON
+ */
+
+/**
+ * Serializes this environment to JSON.
+ *
+ * This method is an alias of [toSpec]{pentaho.environment.IEnvironment#toSpec}.
+ *
+ * @name toJSON
+ * @memberOf pentaho.environment.IEnvironment#
+ * @method
+ * @return {pentaho.environment.spec.IEnvironment} The environment specification.
+ * @see pentaho.environment.IEnvironment#toSpec
+ */

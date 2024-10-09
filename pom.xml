@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.tahopen</groupId>
+    <artifactId>tahopen-ce-jar-parent-pom</artifactId>
+    <version>0.1.0.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>common-ui</artifactId>
+  <version>0.1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>Common-UI root POM</name>
+  <description>Parent pom for Common-UI projects.</description>
+  <url>http://www.tahopen.org</url>
+
+  <modules>
+    <module>impl</module>
+    <module>assemblies</module>
+  </modules>
+
+<!--
+  <scm>
+    <connection>scm:git:git@github.com:pentaho/pentaho-platform-plugin-common-ui.git</connection>
+    <developerConnection>scm:git:git@github.com:pentaho/pentaho-platform-plugin-common-ui.git</developerConnection>
+    <url>https://github.com/pentaho/pentaho-platform-plugin-common-ui</url>
+  </scm>
+-->
+  <properties>
+    <dojo.version>1.9.2</dojo.version>
+    <jquery-i18n-properties.version>1.0.9</jquery-i18n-properties.version>
+    <pentaho-cdf-plugin.version>0.1.0.0-SNAPSHOT</pentaho-cdf-plugin.version>
+    <echarts.version>5.4.3</echarts.version>
+    <!-- Removed due to custom changes in the current common-ui version -->
+    <!-- (mainly the exporting of the Handlebars global variable) -->
+    <!--<handlebars.version>4.0.5</handlebars.version>-->
+    <angular.version>1.8.0</angular.version>
+    <uirouter-core.version>5.0.23</uirouter-core.version>
+    <uirouter-angularjs.version>1.0.22</uirouter-angularjs.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.dojotoolkit.dojo</groupId>
+        <artifactId>dojo-release</artifactId>
+        <version>${dojo.version}</version>
+        <type>zip</type>
+        <classifier>src</classifier>
+      </dependency>
+      <dependency>
+        <groupId>org.webjars.bower</groupId>
+        <artifactId>jquery-i18n-properties</artifactId>
+        <version>${jquery-i18n-properties.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.webjars.bower</groupId>
+        <artifactId>angular</artifactId>
+        <version>${angular.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.webjars.bower</groupId>
+        <artifactId>angular-animate</artifactId>
+        <version>${angular.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.webjars.npm</groupId>
+        <artifactId>angular-i18n</artifactId>
+        <version>${angular.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.webjars.npm</groupId>
+        <artifactId>uirouter__core</artifactId>
+        <version>${uirouter-core.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.webjars.npm</groupId>
+        <artifactId>uirouter__angularjs</artifactId>
+        <version>${uirouter-angularjs.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.tahopen</groupId>
+        <artifactId>tahopen-cdf-js</artifactId>
+        <version>${pentaho-cdf-plugin.version}</version>
+        <type>zip</type>
+        <scope>test</scope>
+        <exclusions>
+          <exclusion>
+            <artifactId>*</artifactId>
+            <groupId>*</groupId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.webjars.npm</groupId>
+        <artifactId>echarts</artifactId>
+        <version>${echarts.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <repositories>
+
+  </repositories>
+
+  <pluginRepositories>
+
+  </pluginRepositories>
+
+
+</project>

@@ -1,0 +1,556 @@
+{
+  "name": "@pentaho/common-ui",
+  "version": "${project.version}",
+
+  "preferGlobal": true,
+
+  "dependencies": {
+    "@pentaho/cdf": "${pentaho-cdf-plugin.version}"
+  },
+
+  "paths": {
+    "common-ui": "/",
+    "common-repo": "/repo",
+    "common-data": "/dataapi",
+
+    "pentaho/common": "/dojo/pentaho/common",
+    "pentaho/_core": "/pentaho/_core",
+    "pentaho/csrf": "/pentaho/csrf",
+    "pentaho/module": "/pentaho/module",
+    "pentaho/shim": "/pentaho/shim",
+    "pentaho/util": "/pentaho/util",
+    "pentaho/lang": "/pentaho/lang",
+    "pentaho/i18n": "/pentaho/i18n",
+    "pentaho/data": "/pentaho/data",
+    "pentaho/action": "/pentaho/action",
+    "pentaho/type": "/pentaho/type",
+    "pentaho/visual": "/pentaho/visual",
+    "pentaho/config": "/pentaho/config",
+    "pentaho/environment": "/pentaho/environment",
+    "pentaho/theme": "/pentaho/theme",
+    "pentaho/debug": "/pentaho/debug",
+    "pentaho/ccc": "/pentaho/ccc",
+    "pentaho/platformCore": "/pentaho/platformCore",
+    "pentaho/platformBundle": "/pentaho/platformBundle",
+
+    "local": "/util/local",
+    "json": "/util/require-json/json",
+    "text": "/util/require-text/text",
+    "common-ui/util/require-css/css": "/util/require-css/css",
+
+    "dojo": "/dojo/dojo",
+    "dojox": "/dojo/dojox",
+    "dijit": "/dojo/dijit",
+
+    "dojo/on": "/dojo/pentaho/common/overrides/dojo/on",
+    "dojo/dom-geometry": "/dojo/pentaho/common/overrides/dojo/dom-geometry",
+    "dojo/dom-prop": "/dojo/pentaho/common/overrides/dojo/dom-prop",
+    "dojox/layout/ResizeHandle": "/dojo/pentaho/common/overrides/dojox/layout/ResizeHandle",
+    "dojox/grid/_View": "/dojo/pentaho/common/overrides/dojox/grid/_View",
+    "dojox/xml/parser": "/dojo/pentaho/common/overrides/dojox/xml/parser",
+    "dojox/grid/Selection": "/dojo/pentaho/common/overrides/dojox/grid/Selection",
+    "dojox/grid/_FocusManager": "/dojo/pentaho/common/overrides/dojox/grid/_FocusManager",
+    "dojox/grid/_Scroller": "/dojo/pentaho/common/overrides/dojox/grid/_Scroller",
+    "dojox/storage": "/dojo/pentaho/common/overrides/dojox/storage",
+    "dojox/json": "/dojo/pentaho/common/overrides/dojox/json",
+    "dojox/rpc": "/dojo/pentaho/common/overrides/dojox/rpc",
+    "dojo/_base/kernel": "/dojo/pentaho/common/overrides/dojo/_base/kernel",
+    "dojo/_base/config": "/dojo/pentaho/common/overrides/dojo/_base/config",
+    "dojo/store/JsonRest": "/dojo/pentaho/common/overrides/dojo/store/JsonRest",
+    "dojo/store/Memory": "/dojo/pentaho/common/overrides/dojo/store/Memory",
+    "dijit/_HasDropDown": "/dojo/pentaho/common/overrides/dijit/_HasDropDown",
+    "dijit/_CssStateMixin": "/dojo/pentaho/common/overrides/dijit/_CssStateMixin",
+    "dijit/_PaletteMixin": "/dojo/pentaho/common/overrides/dijit/_PaletteMixin",
+    "dijit/Dialog": "/dojo/pentaho/common/overrides/dijit/Dialog",
+    "dijit/Menu": "/dojo/pentaho/common/overrides/dijit/Menu",
+    "dojo/selector/_loader": "/dojo/pentaho/common/overrides/dojo/selector/_loader",
+    "dojo/i18n": "/dojo/pentaho/common/overrides/dojo/i18n",
+    "dojo/request/default": "/dojo/pentaho/common/overrides/dojo/request/default",
+
+    "common-ui/jquery": "/jquery/jquery.conflict",
+    "common-ui/jquery-clean": "/jquery/jquery",
+    "common-ui/handlebars": "/handlebars/handlebars-v4.7.7",
+    "common-ui/jquery-i18n": "/jquery/jquery.i18n.properties-min",
+    "common-ui/jquery-pentaho-i18n": "/jquery/jquery.i18n.properties.supported.languages",
+    "common-ui/bootstrap": "/bootstrap/bootstrap",
+    "common-ui/underscore": "/underscore/underscore"
+  },
+
+  "map": {
+    "common-ui": {
+      "css": "common-ui/util/require-css/css",
+      "underscore": "common-ui/underscore"
+    }
+  },
+
+  "packages": [
+    {"name": "pentaho/module", "main": "metaOf"},
+    {"name": "pentaho/environment"},
+    {"name": "pentaho/theme"},
+    {"name": "pentaho/i18n", "main": "defaultService"},
+    {"name": "pentaho/debug", "main": "manager"}
+  ],
+
+  "config": {
+    "pentaho/modules": {
+      "pentaho/config/spec/IRuleSet": {
+        "base": null,
+        "isVirtual": true
+      },
+
+      "pentaho/module/Annotation": {
+        "base": null
+      },
+      "pentaho/config/ExternalAnnotation": {
+        "base": "pentaho/module/Annotation"
+      },
+      "pentaho/i18n/LoadConfigAnnotation": {
+        "base": "pentaho/config/ExternalAnnotation"
+      },
+      "pentaho/theme/LoadThemeAnnotation": {
+        "base": "pentaho/module/Annotation"
+      },
+      "pentaho/theme/ThemeAnnotation": {
+        "base": "pentaho/module/Annotation"
+      },
+
+      "pentaho/type/Instance": {
+        "alias": "instance",
+        "base": null
+      },
+      "pentaho/type/Value": {
+        "alias": "value",
+        "base": "instance"
+      },
+      "pentaho/type/Property": {
+        "alias": "property",
+        "base": "instance"
+      },
+      "pentaho/type/List": {
+        "alias": "list",
+        "base": "value"
+      },
+      "pentaho/type/Element": {
+        "alias": "element",
+        "base": "value"
+      },
+      "pentaho/type/Complex": {
+        "alias": "complex",
+        "base": "element"
+      },
+      "pentaho/type/Simple": {
+        "alias": "simple",
+        "base": "element"
+      },
+      "pentaho/type/Number": {
+        "alias": "number",
+        "base": "simple"
+      },
+      "pentaho/type/String": {
+        "alias": "string",
+        "base": "simple"
+      },
+      "pentaho/type/Boolean": {
+        "alias": "boolean",
+        "base": "simple"
+      },
+      "pentaho/type/Date": {
+        "alias": "date",
+        "base": "simple"
+      },
+      "pentaho/type/Object": {
+        "alias": "object",
+        "base": "simple"
+      },
+      "pentaho/type/Function": {
+        "alias": "function",
+        "base": "simple"
+      },
+      "pentaho/type/TypeDescriptor": {
+        "alias": "type",
+        "base": "simple"
+      },
+      "pentaho/type/mixins/Enum": {
+        "alias": "enum",
+        "base": "element"
+      },
+      "pentaho/data/filter/Abstract": {
+        "base": "complex"
+      },
+      "pentaho/data/filter/True": {
+        "alias": "true",
+        "base": "pentaho/data/filter/Abstract"
+      },
+      "pentaho/data/filter/False": {
+        "alias": "false",
+        "base": "pentaho/data/filter/Abstract"
+      },
+      "pentaho/data/filter/Tree": {
+        "base": "pentaho/data/filter/Abstract"
+      },
+      "pentaho/data/filter/Or": {
+        "alias": "or",
+        "base": "pentaho/data/filter/Tree"
+      },
+      "pentaho/data/filter/And": {
+        "alias": "and",
+        "base": "pentaho/data/filter/Tree"
+      },
+      "pentaho/data/filter/Not": {
+        "alias": "not",
+        "base": "pentaho/data/filter/Abstract"
+      },
+      "pentaho/data/filter/Property": {
+        "base": "pentaho/data/filter/Abstract"
+      },
+      "pentaho/data/filter/IsEqual": {
+        "alias": "=",
+        "base": "pentaho/data/filter/Property"
+      },
+      "pentaho/data/filter/IsIn": {
+        "alias": "in",
+        "base": "pentaho/data/filter/Property"
+      },
+      "pentaho/data/filter/IsGreater": {
+        "alias": ">",
+        "base": "pentaho/data/filter/Property"
+      },
+      "pentaho/data/filter/IsGreaterOrEqual": {
+        "alias": ">=",
+        "base": "pentaho/data/filter/Property"
+      },
+      "pentaho/data/filter/IsLess": {
+        "alias": "<",
+        "base": "pentaho/data/filter/Property"
+      },
+      "pentaho/data/filter/IsLessOrEqual": {
+        "alias": "<=",
+        "base": "pentaho/data/filter/Property"
+      },
+      "pentaho/data/filter/IsLike": {
+        "alias": "like",
+        "base": "pentaho/data/filter/Property"
+      },
+      "pentaho/visual/Model": {
+        "base": "complex",
+        "annotations": {
+          "pentaho/visual/DefaultView": {
+            "module": "./View"
+          }
+        }
+      },
+      "pentaho/visual/DefaultViewAnnotation": {
+        "base": "pentaho/module/Annotation"
+      },
+      "pentaho/visual/role/adaptation/Strategy": {
+        "base": "complex"
+      },
+      "pentaho/visual/role/adaptation/EntityWithTimeIntervalKeyStrategy": {
+        "base": "pentaho/visual/role/adaptation/Strategy",
+        "ranking": -5
+      },
+      "pentaho/visual/role/adaptation/EntityWithNumberKeyStrategy": {
+        "base": "pentaho/visual/role/adaptation/Strategy",
+        "ranking": -5
+      },
+      "pentaho/visual/role/adaptation/CombineStrategy": {
+        "base": "pentaho/visual/role/adaptation/Strategy",
+        "ranking": -5
+      },
+      "pentaho/visual/role/adaptation/IdentityStrategy": {
+        "base": "pentaho/visual/role/adaptation/Strategy",
+        "ranking": -10
+      },
+      "pentaho/visual/role/adaptation/TupleStrategy": {
+        "base": "pentaho/visual/role/adaptation/Strategy",
+        "ranking": -20
+      },
+      "pentaho/visual/models/Abstract": {
+        "base": "pentaho/visual/Model"
+      },
+      "pentaho/visual/samples/calc/Model": {
+        "base": "pentaho/visual/Model",
+        "annotations": {
+          "pentaho/visual/DefaultView": {
+            "module": "./View"
+          }
+        }
+      },
+
+      "pentaho/visual/models/CartesianAbstract": {
+        "base": "pentaho/visual/models/Abstract"
+      },
+
+      "pentaho/visual/models/CategoricalContinuousAbstract": {
+        "base": "pentaho/visual/models/CartesianAbstract"
+      },
+
+      "pentaho/visual/models/BarAbstract": {
+        "base": "pentaho/visual/models/CategoricalContinuousAbstract"
+      },
+
+      "pentaho/visual/models/Bar": {
+        "base": "pentaho/visual/models/BarAbstract",
+        "annotations": {
+          "pentaho/visual/DefaultView": {
+            "module": "pentaho/ccc/visual/Bar"
+          }
+        }
+      },
+      "pentaho/visual/models/BarHorizontal": {
+        "base": "pentaho/visual/models/BarAbstract",
+        "annotations": {
+          "pentaho/visual/DefaultView": {
+            "module": "pentaho/ccc/visual/BarHorizontal"
+          }
+        }
+      },
+      "pentaho/visual/models/BarStacked": {
+        "base": "pentaho/visual/models/BarAbstract",
+        "annotations": {
+          "pentaho/visual/DefaultView": {
+            "module": "pentaho/ccc/visual/BarStacked"
+          }
+        }
+      },
+      "pentaho/visual/models/BarStackedHorizontal": {
+        "base": "pentaho/visual/models/BarAbstract",
+        "annotations": {
+          "pentaho/visual/DefaultView": {
+            "module": "pentaho/ccc/visual/BarStackedHorizontal"
+          }
+        }
+      },
+      "pentaho/visual/models/BarLine": {
+        "base": "pentaho/visual/models/BarAbstract",
+        "annotations": {
+          "pentaho/visual/DefaultView": {
+            "module": "pentaho/ccc/visual/BarLine"
+          }
+        }
+      },
+      "pentaho/visual/models/BarNormalizedAbstract": {
+        "base": "pentaho/visual/models/BarAbstract"
+      },
+      "pentaho/visual/models/BarNormalized": {
+        "base": "pentaho/visual/models/BarNormalizedAbstract",
+        "annotations": {
+          "pentaho/visual/DefaultView": {
+            "module": "pentaho/ccc/visual/BarNormalized"
+          }
+        }
+      },
+      "pentaho/visual/models/BarNormalizedHorizontal": {
+        "base": "pentaho/visual/models/BarNormalizedAbstract",
+        "annotations": {
+          "pentaho/visual/DefaultView": {
+            "module": "pentaho/ccc/visual/BarNormalizedHorizontal"
+          }
+        }
+      },
+
+      "pentaho/visual/models/Sunburst": {
+        "base": "pentaho/visual/models/Abstract",
+        "annotations": {
+          "pentaho/visual/DefaultView": {
+            "module": "pentaho/ccc/visual/Sunburst"
+          }
+        }
+      },
+      "pentaho/visual/models/Pie": {
+        "base": "pentaho/visual/models/Abstract",
+        "annotations": {
+          "pentaho/visual/DefaultView": {
+            "module": "pentaho/ccc/visual/Pie"
+          }
+        }
+      },
+      "pentaho/visual/models/Donut": {
+        "base": "pentaho/visual/models/Pie",
+        "annotations": {
+          "pentaho/visual/DefaultView": {
+            "module": "pentaho/ccc/visual/Donut"
+          }
+        }
+      },
+      "pentaho/visual/models/Waterfall": {
+        "base": "pentaho/visual/models/BarAbstract",
+        "annotations": {
+          "pentaho/visual/DefaultView": {
+            "module": "pentaho/ccc/visual/Waterfall"
+          }
+        }
+      },
+      "pentaho/visual/models/Treemap": {
+        "base": "pentaho/visual/models/Abstract",
+        "annotations": {
+          "pentaho/visual/DefaultView": {
+            "module": "pentaho/ccc/visual/Treemap"
+          }
+        }
+      },
+      "pentaho/visual/models/Funnel": {
+        "base": "pentaho/visual/Model",
+        "annotations": {
+          "pentaho/visual/DefaultView": {
+            "module": "pentaho/visual/views/echarts/Funnel"
+          }
+        }
+      },
+
+      "pentaho/visual/models/Boxplot": {
+        "base": "pentaho/visual/models/CategoricalContinuousAbstract",
+        "annotations": {
+          "pentaho/visual/DefaultView": {
+            "module": "pentaho/ccc/visual/Boxplot"
+          }
+        }
+      },
+
+      "pentaho/visual/models/MetricPointAbstract": {
+        "base": "pentaho/visual/models/CartesianAbstract"
+      },
+      "pentaho/visual/models/Scatter": {
+        "base": "pentaho/visual/models/MetricPointAbstract",
+        "annotations": {
+          "pentaho/visual/DefaultView": {
+            "module": "pentaho/ccc/visual/Scatter"
+          }
+        }
+      },
+      "pentaho/visual/models/Bubble": {
+        "base": "pentaho/visual/models/MetricPointAbstract",
+        "annotations": {
+          "pentaho/visual/DefaultView": {
+            "module": "pentaho/ccc/visual/Bubble"
+          }
+        }
+      },
+
+      "pentaho/visual/models/PointAbstract": {
+        "base": "pentaho/visual/models/CartesianAbstract"
+      },
+      "pentaho/visual/models/LineAbstract": {
+        "base": "pentaho/visual/models/PointAbstract"
+      },
+      "pentaho/visual/models/Line": {
+        "base": "pentaho/visual/models/LineAbstract",
+        "annotations": {
+          "pentaho/visual/DefaultView": {
+            "module": "pentaho/ccc/visual/Line"
+          }
+        }
+      },
+      "pentaho/visual/models/LineStacked": {
+        "base": "pentaho/visual/models/LineAbstract",
+        "annotations": {
+          "pentaho/visual/DefaultView": {
+            "module": "pentaho/ccc/visual/LineStacked"
+          }
+        }
+      },
+      "pentaho/visual/models/AreaStacked": {
+        "base": "pentaho/visual/models/PointAbstract",
+        "annotations": {
+          "pentaho/visual/DefaultView": {
+            "module": "pentaho/ccc/visual/AreaStacked"
+          }
+        }
+      },
+      "pentaho/visual/models/Dot": {
+        "base": "pentaho/visual/models/PointAbstract",
+        "annotations": {
+          "pentaho/visual/DefaultView": {
+            "module": "pentaho/ccc/visual/Dot"
+          }
+        }
+      },
+
+      "pentaho/visual/models/HeatGrid": {
+        "base": "pentaho/visual/models/CartesianAbstract",
+        "annotations": {
+          "pentaho/visual/DefaultView": {
+            "module": "pentaho/ccc/visual/HeatGrid"
+          }
+        }
+      },
+
+      "pentaho/visual/color/Palette": {
+        "base": "complex"
+      },
+      "pentaho/visual/config": {
+        "type": "pentaho/config/spec/IRuleSet"
+      },
+      "pentaho/visual/color/palettes/nominalPrimary": {
+        "type": "pentaho/visual/color/Palette",
+        "ranking": -10
+      },
+      "pentaho/visual/color/palettes/nominalNeutral": {
+        "type": "pentaho/visual/color/Palette",
+        "ranking": -110
+      },
+      "pentaho/visual/color/palettes/nominalLight": {
+        "type": "pentaho/visual/color/Palette",
+        "ranking": -120
+      },
+      "pentaho/visual/color/palettes/nominalDark": {
+        "type": "pentaho/visual/color/Palette",
+        "ranking": -130
+      },
+      "pentaho/visual/color/palettes/quantitativeBlue3": {
+        "type": "pentaho/visual/color/Palette",
+        "ranking": -10
+      },
+      "pentaho/visual/color/palettes/quantitativeBlue5": {
+        "type": "pentaho/visual/color/Palette",
+        "ranking": -10
+      },
+      "pentaho/visual/color/palettes/quantitativeGray3": {
+        "type": "pentaho/visual/color/Palette",
+        "ranking": -10
+      },
+      "pentaho/visual/color/palettes/quantitativeGray5": {
+        "type": "pentaho/visual/color/Palette",
+        "ranking": -10
+      },
+      "pentaho/visual/color/palettes/divergentRyg3": {
+        "type": "pentaho/visual/color/Palette",
+        "ranking": -10
+      },
+      "pentaho/visual/color/palettes/divergentRyg5": {
+        "type": "pentaho/visual/color/Palette",
+        "ranking": -10
+      },
+      "pentaho/visual/color/palettes/divergentRyb3": {
+        "type": "pentaho/visual/color/Palette",
+        "ranking": -10
+      },
+      "pentaho/visual/color/palettes/divergentRyb5": {
+        "type": "pentaho/visual/color/Palette",
+        "ranking": -10
+      }
+    }
+  },
+
+  "shim": {
+    "common-ui/handlebars": {
+      "deps": [
+        "common-ui/jquery"
+      ]
+    },
+    "common-ui/jquery-i18n": {
+      "deps": [
+        "common-ui/jquery"
+      ]
+    },
+    "common-ui/bootstrap": {
+      "deps": [
+        "common-ui/jquery"
+      ]
+    }
+  },
+
+  "scripts": {
+    "preconfig": "preconfig.js"
+  }
+}

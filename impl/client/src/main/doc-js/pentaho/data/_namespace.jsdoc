@@ -1,0 +1,33 @@
+/*!
+ * Copyright 2010 - 2017 Hitachi Vantara. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * The `data` namespace contains the types of the **Pentaho Data API**.
+ *
+ * ## Overview
+ *
+ * The Pentaho Data API contains, at its core, a _data table_ abstraction that allows JavaScript APIs,
+ * components and applications to consume and exchange tabular data in a common way.
+ *
+ * The data table abstraction is the [ITable]{@link pentaho.data.ITable} interface and
+ * the data table class, [Table]{@link pentaho.data.Table}, provides a basic implementation of it.
+ *
+ * Additionally, the `data` namespace contains the **Pentaho Filter API** (see {@link pentaho.data.filter}).
+ *
+ * @name pentaho.data
+ * @namespace
+ */
+
+// TODO: pentaho.data.access, when made public, should be introduced here.

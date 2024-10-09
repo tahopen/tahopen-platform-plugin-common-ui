@@ -1,0 +1,44 @@
+/*!
+ * Copyright 2018 Hitachi Vantara. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * The `spec.IMapping` interface describes the _object_ form of
+ * an [internal visual role mapping]{@link pentaho.visual.role.Mapping} instance.
+ *
+ * @example
+ * {
+ *   fields: ["family", "product"],
+ *   modeFixed: {dataType: ["string"]}
+ * }
+ *
+ * @name pentaho.visual.role.spec.IMapping
+ * @interface
+ * @extends pentaho.visual.role.spec.IAbstractMapping
+ */
+
+/**
+ * The fixed mode of operation in which the associated visual role is to operate.
+ *
+ * When specified,
+ * it must be equal to one of the operation [modes]{@link pentaho.visual.role.PropertyType#modes}
+ * of the associated visual role property;
+ * otherwise, the mapping is considered _invalid_.
+ *
+ * @name pentaho.visual.role.spec.IMapping#modeFixed
+ * @type {pentaho.visual.role.spec.IMode}
+ *
+ * @see pentaho.visual.role.Mapping#modeFixed
+ */

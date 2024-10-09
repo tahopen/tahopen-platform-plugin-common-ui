@@ -1,0 +1,377 @@
+/*!
+ * Copyright 2018 Hitachi Vantara. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * @classDesc The `IMeta` interface contains the metadata of a JavaScript module.
+ *
+ * A JavaScript module is identified by its [identifier]{@link pentaho.module.IMeta#id}.
+ *
+ * @name IMeta
+ * @memberOf pentaho.module
+ * @interface
+ *
+ * @see pentaho.module.ITypeMeta
+ * @see pentaho.module.IInstanceMeta
+ */
+
+/**
+ * Gets the identifier of the module.
+ *
+ * @name id
+ * @memberOf pentaho.module.IMeta#
+ * @type {nonEmptyString}
+ * @readOnly
+ */
+
+/**
+ * Gets the kind of module.
+ *
+ * One of the strings `"type"` or `"instance"`.
+ * @name kind
+ * @memberOf pentaho.module.IMeta#
+ * @type {nonEmptyString}
+ * @readOnly
+ */
+
+/**
+ * Gets the alias of the module.
+ *
+ * @name alias
+ * @memberOf pentaho.module.IMeta#
+ * @type {?nonEmptyString}
+ * @readOnly
+ */
+
+/**
+ * Gets the ranking of the module.
+ *
+ * The ranking determines the order of the module amongst other modules.
+ *
+ * @name ranking
+ * @memberOf pentaho.module.IMeta#
+ * @type {number}
+ * @readOnly
+ */
+
+/**
+ * Gets a value that indicates if the module is virtual.
+ *
+ * A virtual module does not have a corresponding file or implementation.
+ *
+ * @name isVirtual
+ * @memberOf pentaho.module.IMeta#
+ * @type {boolean}
+ * @readOnly
+ */
+
+/**
+ * Prepares a module for loading.
+ *
+ * The preparation of a module consists of:
+ * i) loading its configuration, and
+ * ii) loading asynchronous annotations associated with it.
+ *
+ * Loading a module, through [loadAsync]{@link pentaho.module.IMeta#loadAsync},
+ * also prepares it.
+ *
+ * @name prepareAsync
+ * @memberOf pentaho.module.IMeta#
+ * @method
+ * @return {Promise} A promise for the completion of the module's preparation.
+ *
+ * @see pentaho.module.IMeta#isPrepared
+ * @see pentaho.module.IMeta#config
+ * @see pentaho.module.IMeta#getAnnotation
+ * @see pentaho.module.IMeta#value
+ */
+
+/**
+ * Loads the module and returns a promise for its value.
+ *
+ * @name loadAsync
+ * @memberOf pentaho.module.IMeta#
+ * @method
+ * @return {Promise} A promise for the value of the module.
+ *
+ * @see pentaho.module.IMeta#value
+ */
+
+/**
+ * Gets the configuration of the module.
+ *
+ * When not yet loaded, or if the module has no configuration,
+ * returns `null`.
+ *
+ * @name config
+ * @memberOf pentaho.module.IMeta#
+ * @type {?object}
+ * @readOnly
+ *
+ * @see pentaho.module.IMeta#isPrepared
+ * @see pentaho.module.IMeta#prepareAsync
+ * @see pentaho.module.IMeta#value
+ */
+
+/**
+ * Gets the value of the module, if it has been loaded already,
+ * or `undefined`, otherwise.
+ *
+ * If the module failed to prepare or load,
+ * its [error]{@link pentaho.module.IMeta#error} is thrown.
+ *
+ * @name value
+ * @memberOf pentaho.module.IMeta#
+ * @type {*}
+ * @readOnly
+ * @throws {Error} When the module preparation or loading failed.
+ *
+ * @see pentaho.module.IMeta#isPrepared
+ * @see pentaho.module.IMeta#isLoaded
+ * @see pentaho.module.IMeta#isRejected
+ *
+ * @see pentaho.module.IMeta#config
+ * @see pentaho.module.IMeta#error
+ * @see pentaho.module.IMeta#getAnnotation
+ *
+ * @see pentaho.module.IMeta#prepareAsync
+ * @see pentaho.module.IMeta#loadAsync
+ */
+
+/**
+ * Gets the preparation or loading error of the module, if any,
+ * or `null`, otherwise.
+ *
+ * @name error
+ * @memberOf pentaho.module.IMeta#
+ * @type {?Error}
+ * @readOnly
+ *
+ * @see pentaho.module.IMeta#isRejected
+ * @see pentaho.module.IMeta#value
+ */
+
+/**
+ * Gets a value that indicates if the module's configuration and asynchronous annotations have been loaded.
+ *
+ * @name isPrepared
+ * @memberOf pentaho.module.IMeta#
+ * @type {boolean}
+ * @readOnly
+ *
+ * @see pentaho.module.IMeta#prepareAsync
+ * @see pentaho.module.IMeta#config
+ * @see pentaho.module.IMeta#getAnnotation
+ * @see pentaho.module.IMeta#value
+ */
+
+/**
+ * Gets a value that indicates if the module is loaded.
+ *
+ * When a module is loaded,
+ * its [value]{@link pentaho.module.IMeta#value},
+ * [configuration]{@link pentaho.module.IMeta#config},
+ * and even its asynchronous [annotations]{@link pentaho.module.IMeta#getAnnotation}
+ * are accessible synchronously.
+ *
+ * @name isLoaded
+ * @memberOf pentaho.module.IMeta#
+ * @type {boolean}
+ * @readOnly
+ *
+ * @see pentaho.module.IMeta#value
+ */
+
+/**
+ * Gets a value that indicates if the module's preparation or loading failed.
+ *
+ * @name isRejected
+ * @memberOf pentaho.module.IMeta#
+ * @type {boolean}
+ * @readOnly
+ *
+ * @see pentaho.module.IMeta#error
+ * @see pentaho.module.IMeta#value
+ */
+
+/**
+ * Resolves a module identifier as if it were a dependency of this one.
+ *
+ * Resolving makes `moduleId` absolute, relative to this one.
+ *
+ * Afterwards, any applicable RequireJS contextual mapping configuration is applied.
+ *
+ * @name resolveId
+ * @memberOf pentaho.module.IMeta#
+ * @param {string} moduleId - The identifier of the module to be resolved.
+ * @return {string} The identifier of the resolved module.
+ *
+ * @see pentaho.module.util.resolveModuleId
+ */
+
+/**
+ * Imports a module, given its identifier.
+ *
+ * The module identifier is first resolved, by using {@link pentaho.module.IMeta##resolveId}.
+ *
+ * @name import
+ * @memberOf pentaho.module.IMeta#
+ * @param {string} moduleId - The identifier of the module to be imported.
+ * @return {Promise.<Object>} A promise to the module namespace object of the imported module.
+ * The namespace object will have a property named `default`, containing the default export of the module
+ * as well as named properties, one for each of the module's named exports.
+ */
+
+/**
+ * Gets an annotation associated with this module, given the annotation type or its identifier.
+ *
+ * Either this module is annotated with the requested annotation, or, optionally,
+ * if this is a type module and `keyArgs.inherit` is `true`,
+ * one of its ancestors is.
+ *
+ * If no annotation exists (or is inherited), or exists but is not available synchronously, `null` is returned,
+ * unless `keyArgs.assertResult` is `true`, in which case an error is thrown instead.
+ *
+ * If this module has already been prepared, then all of its annotations (even if inherited)
+ * are available synchronously.
+ * From within the code of a module which uses the [pentaho/module!_]{@link pentaho/module/metaOf} AMD loader plugin,
+ * it is always safe to get any annotation which is known to have been associated with it.
+ *
+ * If it is not known whether an annotation can be obtained synchronously,
+ * the {@link pentaho.module.IMeta#getAnnotationAsync} method should be used instead.
+ *
+ * When this method returns an annotation, for a given annotation type,
+ * it always returns the same annotation instance.
+ *
+ * @name getAnnotation
+ * @memberOf pentaho.module.IMeta#
+ * @method
+ *
+ * @param {Class.<pentaho.module.Annotation>|string} Annotation - The constructor of the annotation or the
+ * annotation identifier.
+ * @param {object} [keyArgs] - The keyword arguments object.
+ * @param {boolean} [keyArgs.inherit=false] - Indicates that if an annotation of the specified type is not present
+ * in this module and this is a type module, an annotation of the specified type may be returned
+ * from the closest ancestor module which has one.
+ * @param {boolean} [keyArgs.assertResult=false] - Indicates that an error should be thrown if an annotation
+ * does not exist or, otherwise, cannot be returned synchronously.
+ *
+ * @return {?pentaho.module.Annotation} The requested annotation, if one is associated with this module;
+ * `null`, otherwise.
+ *
+ * @throw {pentaho.lang.InvalidOperationError} When `keyArgs.assertResult` is `true` and the requested annotation
+ * either does not exist or exists but is not available synchronously.
+ */
+
+/**
+ * Determines if this module is annotated with an annotation of a given type.
+ *
+ * Note that an annotation of the given type may be associated with this module and,
+ * still, not have been loaded yet!
+ * You may want to use this method to avoid a call to
+ * {@link pentaho.module.IMeta#getAnnotationAsync} which would resolve to `null`.
+ *
+ * @name hasAnnotation
+ * @memberOf pentaho.module.IMeta#
+ * @param {Class.<pentaho.module.Annotation>|string} Annotation - The constructor of the annotation or the
+ * annotation identifier.
+ * @param {object} [keyArgs] - The keyword arguments object.
+ * @param {boolean} [keyArgs.inherit=false] - Indicates that if an annotation of the specified type is not present
+ * in this module and this is a type module,
+ * an annotation of the specified type and from ancestor modules may be considered.
+ *
+ * @return {boolean} `true` if an annotation of the given type is associated with this module; `false`, otherwise.
+ */
+
+/**
+ * Gets an array of identifiers of the annotations of this module, if any.
+ *
+ * @name getAnnotationsIds
+ * @memberOf pentaho.module.IMeta#
+ * @param {object} [keyArgs] - The keyword arguments object.
+ * @param {boolean} [keyArgs.inherit=false] - Indicates that if this is a type module,
+ * annotations from ancestor modules should be included.
+ *
+ * @return {?(string[])} An array of annotation identifiers, if any; `null`, otherwise.
+ */
+
+/**
+ * Gets an annotation associated with this module, asynchronously, given the annotation type or its identifier.
+ *
+ * Either this module is annotated with the requested annotation, or, optionally,
+ * if this is a type module and `keyArgs.inherit` is `true`,
+ * one of its ancestors is.
+ *
+ * If no annotation exists (or is inherited),
+ * a settled promise with the value `null` is returned,
+ * unless `keyArgs.assertResult` is `true`,
+ * in which case a rejected promise is returned instead.
+ *
+ * When this method returns a settled promise, with an annotation, for a given annotation type,
+ * it always returns the same annotation instance.
+ *
+ * @name getAnnotationAsync
+ * @memberOf pentaho.module.IMeta#
+ * @method
+ *
+ * @param {Class.<pentaho.module.Annotation>|string} Annotation - The constructor of the annotation or the
+ * annotation identifier.
+ * @param {object} [keyArgs] - The keyword arguments object.
+ * @param {boolean} [keyArgs.inherit=false] - Indicates that if an annotation of the specified type is not present
+ * in this module and this is a type module, an annotation of the specified type may be returned
+ * from the closest ancestor module which has one.
+ * @param {boolean} [keyArgs.assertResult=false] - Indicates that the promise should be rejected with an error
+ *  if the module (and, optionally, any of its ancestors) is not annotated with an annotation of the requested type.
+ *
+ * @return {Promise.<?pentaho.module.Annotation>} A promise that resolves to the requested annotation,
+ *  if one is associated with this module, or to `null`, otherwise.
+ *
+ * @rejects {pentaho.lang.InvalidOperationError} When `keyArgs.assertResult` is `true` and the requested annotation
+ * does not exist.
+ */
+
+/**
+ * Indicates if this module is a type module which is a subtype of given type module.
+ *
+ * A module is a subtype of another if both are type modules and
+ * they're the same module or the base module can be found by walking up through its
+ * [ancestor]{@link pentaho.module.ITypeMeta#ancestor} property.
+ *
+ * @name isSubtypeOf
+ * @memberOf pentaho.module.IMeta#
+ *
+ * @method
+ *
+ * @param {string|pentaho.module.IMeta} baseIdOrAlias - The identifier or alias or instance of the base module.
+ * @return {boolean} `true` if both modules are type modules and this module is a subtype of the given base module;
+ * `false`, otherwise.
+ *
+ * @throws {pentaho.lang.ArgumentInvalidError} When the `baseIdOrAlias` module is defined but is not a type module.
+ */
+
+/**
+ * Indicates if this module is an instance module which is a direct or indirect instance of a given type module.
+ *
+ * @name isInstanceOf
+ * @memberOf pentaho.module.IMeta#
+ *
+ * @method
+ *
+ * @param {string|pentaho.module.IMeta} typeIdOrAlias - The identifier or alias or instance of a type module.
+ * @return {boolean} `true` if this module is an instance module which is an instance of the given type module;
+ * `false`, otherwise.
+ *
+ * @throws {pentaho.lang.ArgumentInvalidError} When the `typeIdOrAlias` module is defined but is not a type module.
+ */

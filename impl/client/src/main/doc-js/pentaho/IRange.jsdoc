@@ -1,0 +1,50 @@
+/*!
+ * Copyright 2010 - 2017 Hitachi Vantara. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * A range represents an interval on an underlying ordinal domain.
+ * It denotes a subset of a base domain.
+ *
+ * It is defined by the minimum and maximum values on that domain.
+ *
+ * The minimum value must not be greater than the maximum value when both limits are defined.
+ *
+ * When one of the limits of the interval is not defined, that limit is _open_,
+ * and its property's value is `undefined` (or absent).
+ *
+ * When both limits of the interval are not defined, both are _open_,
+ * and their properties' values are `undefined` (or absent).
+ * This is an open range.
+ * When the base domain is empty, the only valid range is open.
+ *
+ * @example
+ * var closedRange = {min: 100, max: 200};
+ *
+ * var openRange1 = {min: undefined, max: undefined};
+ * var openRange2 = {};
+ *
+ * var minOpenRange1 = {min: undefined, max: 200};
+ * var minOpenRange2 = {max: 200};
+ *
+ * var maxOpenRange1 = {min: 100, max: undefined};
+ * var maxOpenRange2 = {min: 100};
+ *
+ * @name pentaho.IRange
+ * @template T
+ * @interface
+ * @property {T|undefined} [min] The minimum value, or `undefined`, when minimum-open.
+ * @property {T|undefined} [max] The maximum value, or `undefined`, when maximum-open.
+ */

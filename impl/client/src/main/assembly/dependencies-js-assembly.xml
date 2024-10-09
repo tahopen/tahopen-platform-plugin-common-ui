@@ -1,0 +1,146 @@
+<assembly xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.3"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.3 http://maven.apache.org/xsd/assembly-1.1.3.xsd">
+
+  <id>common-ui-platform-plugin-js-dependencies</id>
+
+  <formats>
+    <format>dir</format>
+  </formats>
+
+  <includeBaseDirectory>false</includeBaseDirectory>
+
+  <fileSets>
+
+    <fileSet>
+      <directory>${build.javascriptSourceDirectory}/web</directory>
+      <outputDirectory>.</outputDirectory>
+    </fileSet>
+
+    <fileSet>
+      <directory>${basedir}/src/main/resources-filtered/web</directory>
+      <filtered>true</filtered>
+      <outputDirectory>.</outputDirectory>
+    </fileSet>
+
+    <fileSet>
+      <directory>${webjars.target.directory}/requirejs/${requirejs.version}</directory>
+      <outputDirectory>.</outputDirectory>
+      <includes>
+        <include>**/require.js</include>
+      </includes>
+      <excludes>
+        <exclude>**/*.json</exclude>
+        <exclude>**/*.md</exclude>
+      </excludes>
+    </fileSet>
+
+    <fileSet>
+      <directory>${webjars.target.directory}/jquery/${jquery.version}/dist</directory>
+      <excludes>
+        <exclude>**/*.min.js</exclude>
+        <exclude>**/*.min.map</exclude>
+      </excludes>
+      <outputDirectory>jquery</outputDirectory>
+    </fileSet>
+    <fileSet>
+      <directory>${webjars.target.directory}/jquery/${jquery.version}</directory>
+      <includes><include>LICENSE*</include></includes>
+      <outputDirectory>jquery</outputDirectory>
+    </fileSet>
+    <fileSet>
+      <directory>${webjars.target.directory}/echarts/${echarts.version}/dist</directory>
+      <includes>
+        <include>echarts.js</include>
+      </includes>
+      <outputDirectory>echarts</outputDirectory>
+    </fileSet>
+    <fileSet>
+      <directory>${webjars.target.directory}/echarts/${echarts.version}</directory>
+      <includes>
+        <include>LICENSE*</include>
+      </includes>
+      <outputDirectory>echarts</outputDirectory>
+    </fileSet>
+
+    <fileSet>
+      <directory>${build.dependenciesDirectory}/dojo-release-${dojo.version}-src</directory>
+      <outputDirectory>dojo</outputDirectory>
+      <excludes>
+        <exclude>dojox/*/tests/**</exclude>
+        <exclude>dojox/*/*/tests/**</exclude>
+        <exclude>dojox/.gitmodules</exclude>
+        <exclude>dijit/tests/**</exclude>
+        <exclude>dojo/tests/**</exclude>
+        <exclude>util/**</exclude>
+      </excludes>
+    </fileSet>
+
+    <!-- region Angular -->
+    <fileSet>
+      <directory>${webjars.target.directory}/angular/${angular.version}</directory>
+      <outputDirectory>angularjs</outputDirectory>
+      <includes>
+        <include>angular.js</include>
+        <include>LICENSE*</include>
+      </includes>
+    </fileSet>
+    <fileSet>
+      <directory>${webjars.target.directory}/angular-animate/${angular.version}</directory>
+      <outputDirectory>angularjs</outputDirectory>
+      <includes>
+        <include>angular-animate.js</include>
+      </includes>
+    </fileSet>
+    <fileSet>
+      <directory>${webjars.target.directory}/angular-i18n/${angular.version}</directory>
+      <outputDirectory>angularjs/i18n</outputDirectory>
+      <includes>
+        <include>angular*</include>
+      </includes>
+    </fileSet>
+
+    <fileSet>
+      <directory>${webjars.target.directory}/uirouter__core/${uirouter-core.version}</directory>
+      <outputDirectory>angularjs/uirouter/core</outputDirectory>
+      <includes>
+        <include>_bundles/ui-router-core.min.js*</include>
+        <include>LICENSE*</include>
+      </includes>
+    </fileSet>
+    <fileSet>
+      <directory>${webjars.target.directory}/uirouter__angularjs/${uirouter-angularjs.version}</directory>
+      <outputDirectory>angularjs/uirouter/angularjs</outputDirectory>
+      <includes>
+        <include>release/ui-router-angularjs.min.js*</include>
+        <include>LICENSE*</include>
+      </includes>
+    </fileSet>
+    <!-- endregion Angular -->
+
+  </fileSets>
+
+  <files>
+
+    <file>
+      <source>
+        ${webjars.target.directory}/jquery-i18n-properties/${jquery-i18n-properties.version}/jquery.i18n.properties-min.js
+      </source>
+      <outputDirectory>jquery</outputDirectory>
+    </file>
+
+    <!-- Removed due to custom changes in the current common-ui version -->
+    <!-- (mainly the exporting of the Handlebars global variable) -->
+    <!--<file>-->
+    <!--<source>${webjars.target.directory}/handlebars/${handlebars.version}/dist/handlebars.js</source>-->
+    <!--<destName>handlebars-v4.0.5.js</destName>-->
+    <!--<outputDirectory>handlebars</outputDirectory>-->
+    <!--</file>-->
+
+  </files>
+
+  <dependencySets>
+
+  </dependencySets>
+
+</assembly>
