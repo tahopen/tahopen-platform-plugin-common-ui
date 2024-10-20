@@ -19,7 +19,7 @@
     for each of the constituents (e.g. vizapi, prompting) of the current artifact.</description>
 
   <properties>
-    <js.project.list>dojo-release,requirejs,jquery,jquery-i18n-properties,tahopen-cdf-js,angular,angular-animate,angular-i18n,uirouter__core,uirouter__angularjs,echarts</js.project.list>
+    <js.project.list>dojo-release,requirejs,jquery,jquery-i18n-properties,pentaho-cdf-js,angular,angular-animate,angular-i18n,uirouter__core,uirouter__angularjs,echarts</js.project.list>
     <build.javascriptReportDirectory>target/js-reports</build.javascriptReportDirectory>
 
     <docjs.config.file>jsdoc-vizapi.json</docjs.config.file>
@@ -53,8 +53,9 @@
       <artifactId>jquery-i18n-properties</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.tahopen</groupId>
-      <artifactId>tahopen-cdf-js</artifactId>
+      <groupId>pentaho</groupId>
+      <artifactId>pentaho-cdf-js</artifactId>
+      <version>9.4.0.0-SNAPSHOT</version>
       <type>zip</type>
     </dependency>
     <dependency>
