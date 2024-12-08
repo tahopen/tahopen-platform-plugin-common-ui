@@ -22,17 +22,10 @@
     <module>assemblies</module>
   </modules>
 
-<!--
-  <scm>
-    <connection>scm:git:git@github.com:pentaho/pentaho-platform-plugin-common-ui.git</connection>
-    <developerConnection>scm:git:git@github.com:pentaho/pentaho-platform-plugin-common-ui.git</developerConnection>
-    <url>https://github.com/pentaho/pentaho-platform-plugin-common-ui</url>
-  </scm>
--->
   <properties>
     <dojo.version>1.9.2</dojo.version>
     <jquery-i18n-properties.version>1.0.9</jquery-i18n-properties.version>
-    <pentaho-cdf-plugin.version>9.4.0.0-SNAPSHOT</pentaho-cdf-plugin.version>
+    <pentaho-cdf-plugin.version>0.1.0.0-SNAPSHOT</pentaho-cdf-plugin.version>
     <echarts.version>5.4.3</echarts.version>
     <!-- Removed due to custom changes in the current common-ui version -->
     <!-- (mainly the exporting of the Handlebars global variable) -->
@@ -82,8 +75,8 @@
         <version>${uirouter-angularjs.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.pentaho</groupId>
-        <artifactId>pentaho-cdf-js</artifactId>
+        <groupId>org.tahopen</groupId>
+        <artifactId>tahopen-cdf-js</artifactId>
         <version>${pentaho-cdf-plugin.version}</version>
         <type>zip</type>
         <scope>test</scope>

@@ -38,12 +38,12 @@
     <!-- Server side dependencies -->
     <dependencySet>
       <excludes>
-        <exclude>org.pentaho:common-ui-impl-server:jar:sources</exclude>
+        <exclude>org.tahopen:common-ui-impl-server:jar:sources</exclude>
       </excludes>
       <includes>
-        <include>org.pentaho:common-ui-impl-server:jar</include>
+        <include>org.tahopen:common-ui-impl-server:jar</include>
         <include>net.sf.flexjson:flexjson</include>
-        <include>pentaho:pentaho-modeler</include>
+        <include>tahopen:pentaho-modeler</include>
       </includes>
       <outputDirectory>common-ui/lib</outputDirectory>
       <useTransitiveDependencies>false</useTransitiveDependencies>
