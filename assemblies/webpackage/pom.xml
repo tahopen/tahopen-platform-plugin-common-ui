@@ -19,7 +19,7 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.tahopen</groupId>
+      <groupId>tahopen</groupId>
       <artifactId>common-ui</artifactId>
       <version>${project.version}</version>
       <type>zip</type>
