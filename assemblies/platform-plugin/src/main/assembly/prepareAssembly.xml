@@ -14,7 +14,7 @@
      main assembly descriptor as a file set-->
     <dependencySet>
       <includes>
-        <include>org.pentaho:common-ui-impl-client</include>
+        <include>org.tahopen:common-ui-impl-client</include>
       </includes>
       <useTransitiveDependencies>false</useTransitiveDependencies>
       <unpack>true</unpack>
@@ -25,7 +25,7 @@
     <!-- GWT -->
     <dependencySet>
       <includes>
-        <include>org.pentaho:commons-gwt-widgets</include>
+        <include>org.tahopen:commons-gwt-widgets</include>
       </includes>
       <useTransitiveDependencies>false</useTransitiveDependencies>
       <unpack>true</unpack>
@@ -39,7 +39,7 @@
     </dependencySet>
     <dependencySet>
       <includes>
-        <include>org.pentaho:commons-gwt-widgets-package:war</include>
+        <include>org.tahopen:commons-gwt-widgets-package:war</include>
       </includes>
       <useTransitiveDependencies>false</useTransitiveDependencies>
       <unpack>true</unpack>
