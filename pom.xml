@@ -6,16 +6,16 @@
   <parent>
     <groupId>org.tahopen</groupId>
     <artifactId>tahopen-ce-jar-parent-pom</artifactId>
-    <version>0.1.0.0-SNAPSHOT</version>
+    <version>0.1.0.0</version>
   </parent>
   
   <artifactId>common-ui</artifactId>
-  <version>0.1.0.0-SNAPSHOT</version>
+  <version>0.1.0.0</version>
   <packaging>pom</packaging>
 
   <name>Common-UI root POM</name>
   <description>Parent pom for Common-UI projects.</description>
-  <url>http://www.tahopen.org</url>
+  <url>https://www.tahopen.org</url>
 
   <modules>
     <module>impl</module>
@@ -25,7 +25,7 @@
   <properties>
     <dojo.version>1.9.2</dojo.version>
     <jquery-i18n-properties.version>1.0.9</jquery-i18n-properties.version>
-    <pentaho-cdf-plugin.version>0.1.0.0-SNAPSHOT</pentaho-cdf-plugin.version>
+    <pentaho-cdf-plugin.version>0.1.0.0</pentaho-cdf-plugin.version>
     <echarts.version>5.4.3</echarts.version>
     <!-- Removed due to custom changes in the current common-ui version -->
     <!-- (mainly the exporting of the Handlebars global variable) -->
