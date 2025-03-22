@@ -11,7 +11,7 @@ Common-UI uses the maven framework.
 #### Pre-requisites for building the project:
 * Maven, version 3+
 * Java JDK 11
-* This [settings.xml](https://raw.githubusercontent.com/pentaho/maven-parent-poms/master/maven-support-files/settings.xml) in your <user-home>/.m2 directory
+* This [settings.xml](https://raw.githubusercontent.com/tahopen/maven-parent-poms/master/maven-support-files/settings.xml) in your <user-home>/.m2 directory
 
 #### Building it
 
@@ -25,7 +25,7 @@ Optionally you can specify -Drelease to trigger obfuscation and/or uglification 
 Optionally you can specify -Dmaven.test.skip=true to skip the tests (even though
 you shouldn't as you know)
 
-The build result will be a Pentaho package located in ```target```.
+The build result will be a Tahopen package located in ```target```.
 
 #### Deploying to tahopen-server
 
