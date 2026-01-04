@@ -55,7 +55,8 @@
     <dependency>
       <groupId>org.tahopen</groupId>
       <artifactId>tahopen-cdf-js</artifactId>
-      <version>${pentaho-cdf-plugin.version}</version>
+      <version>0.1.0.0-SNAPSHOT</version>
+      <!-- <version>${pentaho-cdf-plugin.version}</version> -->
       <type>zip</type>
     </dependency>
     <dependency>
