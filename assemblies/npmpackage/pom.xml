@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.tahopen</groupId>
     <artifactId>common-ui-assemblies</artifactId>
-    <version>0.1.0.0-SNAPSHOT</version>
+    <version>0.1.0.0</version>
   </parent>
 
   <properties>
@@ -21,7 +21,7 @@
 
   <dependencies>
     <dependency>
-      <groupId>tahopen</groupId>
+      <groupId>org.tahopen</groupId>
       <artifactId>common-ui</artifactId>
       <version>${project.version}</version>
       <classifier>js</classifier>

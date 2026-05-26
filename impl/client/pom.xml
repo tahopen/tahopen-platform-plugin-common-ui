@@ -10,6 +10,7 @@
     <version>0.1.0.0</version>
   </parent>
 
+  <groupId>org.tahopen</groupId>
   <artifactId>common-ui-impl-client</artifactId>
   <version>0.1.0.0</version>
   <name>Common UI client side</name>
@@ -26,7 +27,7 @@
     <docjs.config.github.branch>master</docjs.config.github.branch>
     <docjs.config.template.directory>${project.basedir}/src/doc/javascript/template</docjs.config.template.directory>
 
-    <js.build.optimizer>uglify2</js.build.optimizer>
+   <js.build.optimizer>uglify2</js.build.optimizer>
     <requirejs.config.files.pattern>**/*-require-js-cfg.js</requirejs.config.files.pattern>
     <webjars.target.directory>${build.dependenciesDirectory}/META-INF/resources/webjars</webjars.target.directory>
 
@@ -37,7 +38,7 @@
      -->
   </properties>
 
-  <dependencies>
+   <dependencies>
     <dependency>
       <groupId>org.dojotoolkit.dojo</groupId>
       <artifactId>dojo-release</artifactId>
