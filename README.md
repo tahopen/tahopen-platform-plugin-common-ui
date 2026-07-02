@@ -19,6 +19,8 @@ This is a maven project, and to build it use the following command
 
 ```
 $ mvn clean install
+
+$ mvn clean install -DskipTests -Dkarma.skip=true -Djs.tests.skip=true
 ```
 Optionally you can specify -Drelease to trigger obfuscation and/or uglification (as needed)
 
