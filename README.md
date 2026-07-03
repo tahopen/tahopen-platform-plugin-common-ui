@@ -19,6 +19,7 @@ This is a maven project, and to build it use the following command
 
 ```
 $ mvn clean install
+
 ```
 Optionally you can specify -Drelease to trigger obfuscation and/or uglification (as needed)
 
